@@ -13,13 +13,17 @@ const app = express();
 connectDB();
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "*",
+    origin: [
+      "http://localhost:5173",
+      "https://expense-tracker-frontend-eight-rust.vercel.app", // production
+      "https://expense-tracker-frontend-git-main-venkats-projects-402dc0d4.vercel.app", // vercel preview
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
-     origin: ["http://localhost:5173", "https://expense-tracker-frontend-beta-nine.vercel.app"],
-    credentials: true
+    credentials: true,
   })
 );
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 

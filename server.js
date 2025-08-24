@@ -16,6 +16,8 @@ app.use(
     origin: process.env.CLIENT_URL || "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
+     origin: ["http://localhost:5173", "https://expense-tracker-frontend-beta-nine.vercel.app"],
+    credentials: true
   })
 );
 
@@ -30,6 +32,10 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
+
+
 
 
 

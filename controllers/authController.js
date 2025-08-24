@@ -21,8 +21,9 @@ const generateToken=(id)=>{
 
     let profileImageUrl;
     if (req.file) {
-      profileImageUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
-    } 
+    profileImageUrl = `${process.env.BASE_URL}/uploads/${req.file.filename}`;
+  }
+
 
     try {
     const existingUser = await User.findOne({ email });
